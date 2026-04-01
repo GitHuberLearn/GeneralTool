@@ -230,19 +230,33 @@ export function setInter_time(fn, time) {
     fn();
   }, time);
 }
-export function setClear_tiem(TIMECLEAR) {
+export function setClear_time(TIMECLEAR) {
   clearInterval(TIMECLEAR);
 }
 
 /**
  * @param {*数值} cellValue
- * @param {*小数位数} n (默认三位)
+ * @param {*小数位数} n (默认2位)
  * @returns 保留小数点，符合四舍五入（有就保留，没有就不保留）
  */
 export function formatterFloat(cellValue, n) {
-  const d = n ? n : 3;
+  const d = n ? n : 2;
   return parseFloat(parseFloat(cellValue).toFixed(d));
 }
+
+/**
+ * 精确四舍五入到指定位数
+ * @param {number} num - 需要处理的数字
+ * @param {number} decimals - 保留的小数位数（默认2位）
+ * @returns {number} 返回四舍五入后的数字
+ */
+export const roundToDecimal = (num, decimals = 2) => {
+  if (isNaN(num) || isNaN(decimals)) {
+    throw new Error('参数必须是数字');
+  }
+  const factor = 10 ** decimals;
+  return Math.round((num + Number.EPSILON) * factor) / factor;
+};
 
 /**
  * @param {*年数} n/num 正数后几年，负数前几个月 默认本年
@@ -341,13 +355,50 @@ export function timeSection(startTime, endTime) {
 
 /**
  * 格式化时间
- * Parse the time to string
- * @param {(Object|string|number)} time
- * @param {string} cFormat 时间格式 默认时分秒
- * "{y}-{m}-{d} {h}:{i}:{s} {a}" 年月日时分秒 星期
- * @returns {string | null}
+ * @param {Date|number|string} time - Date对象、时间戳或可解析的时间字符串
+ * @param {string} [cFormat='{y}-{m}-{d} {h}:{i}:{s} {a}'] - 自定义格式，如 '{y}-{m}-{d}'
+ * @returns {string|null} 格式化后的时间字符串，无效输入返回 null
  */
 export function parseTime(time, cFormat) {
+  // 1. 处理无效输入
+  if (!time) return null;
+
+  // 2. 统一转换为 Date 对象
+  let date;
+  if (time instanceof Date) {
+    date = time;
+  } else if (typeof time === 'number' || typeof time === 'string') {
+    date = new Date(time);
+    // 处理无效日期（如非法时间戳或字符串）
+    if (isNaN(date.getTime())) return null;
+  } else {
+    return null;
+  }
+
+  // 3. 预定义格式化对象（避免每次调用重复创建）
+  const formatObj = {
+    y: date.getFullYear(),
+    m: String(date.getMonth() + 1).padStart(2, '0'),
+    d: String(date.getDate()).padStart(2, '0'),
+    h: String(date.getHours()).padStart(2, '0'),
+    i: String(date.getMinutes()).padStart(2, '0'),
+    s: String(date.getSeconds()).padStart(2, '0'),
+    a: date.getDay(), // 星期几（0-6）
+  };
+
+  // 4. 替换格式占位符
+  return cFormat.replace(/\{([ymdhisa])\}/g, (match, key) => {
+    if (key === 'a') {
+      return `星期${['日', '一', '二', '三', '四', '五', '六'][formatObj.a]}`;
+    }
+    return formatObj[key];
+  });
+}
+
+/**
+ * 对uniapp不兼容
+ */
+export function parseTime1(time, cFormat) {
   if (arguments.length === 0 || !time) {
     return null;
   }
@@ -356,7 +407,21 @@ export function parseTime(time, cFormat) {
   if (typeof time === 'object') {
     date = time;
   } else {
-    date = timestampProcessing(time);
+    if (typeof time === 'string') {
+      if (/^[0-9]+$/.test(time)) {
+        // support "1548221490638"
+        time = parseInt(time);
+      } else {
+        // support safari
+        // https://stackoverflow.com/questions/4310953/invalid-date-in-safari
+        time = time.replace(new RegExp(/-/gm), '/');
+      }
+    }
+
+    if (typeof time === 'number' && time.toString().length === 10) {
+      time = time * 1000;
+    }
+    date = new Date(time);
   }
   const formatObj = {
     y: date.getFullYear(),
@@ -369,7 +434,7 @@ export function parseTime(time, cFormat) {
   };
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key];
-    // {a}星期 Note: getDay() returns 0 on Sunday
+    // Note: getDay() returns 0 on Sunday
     if (key === 'a') {
       return ['日', '一', '二', '三', '四', '五', '六'][value];
     }
@@ -385,18 +450,17 @@ export function parseTime(time, cFormat) {
  *  大于一天情况，存在优先返回时间格式
  * @returns {string} 距离当下时间状态
  */
-export function formatTime(t, option) {
-  if (arguments.length === 0 || !t) {
-    return null;
+export const formatTime = (time, option) => {
+  if (('' + time).length === 10) {
+    time = parseInt(time) * 1000;
+  } else {
+    time = +time;
   }
-  let time = timestampProcessing(t);
   const d = new Date(time);
   const now = Date.now();
 
   const diff = (now - d) / 1000;
-  if (diff < 0) {
-    return '未来';
-  } else if (diff < 30) {
+  if (diff < 30) {
     return '刚刚';
   } else if (diff < 3600) {
     // less 1 hour
@@ -421,7 +485,7 @@ export function formatTime(t, option) {
       '分'
     );
   }
-}
+};
 
 /**
  * 时间戳处理
@@ -907,18 +971,6 @@ export const toStartName = (name) => {
 };
 
 /**
- * 手机号隐藏关键号
- * @param {*手机号} phone
- * @returns
- */
-export const toStartCellphone = (phone) => {
-  if (!phone) {
-    return;
-  }
-  return `${phone.substring(0, 3)}****${phone.substring(7)}`;
-};
-
-/**
  * 根据数组获取 色值
  * @param {*数组} indicator
  * @returns
@@ -1064,6 +1116,15 @@ export function getNextArray({ arr, type }) {
 }
 
 /**
+ * 判断手机号
+ */
+export const isValidPhoneNumber = (phone) => {
+  // 中国大陆手机号正则：11位，以1开头，第二位通常是3-9
+  const regex = /^1[3-9]\d{9}$/;
+  return regex.test(phone);
+};
+
+/**
  * 手机号格式化
  * @param {String} phone 手机号
  * @returns {string} 格式化为 3-4-4 分组
@@ -1084,7 +1145,39 @@ const formatPhoneNumber = (phone) => {
   return formatted;
 };
 
+/**
+ * 手机号隐藏关键号
+ * @param {*手机号} phone
+ * @returns
+ */
+export const toStartCellphone = (phone) => {
+  if (!phone) {
+    return;
+  }
+  return `${phone.substring(0, 3)}****${phone.substring(7)}`;
+};
+
+/**
+ * 复制文本到剪贴板
+ * @param {String} context 复制的内容
+ */
+const copyToClipboard = (context) => {
+  // 创建输入框元素
+  const input = document.createElement('input');
+  // 将想要复制的值
+  input.value = context;
+  // 页面底部追加输入框
+  document.body.appendChild(input);
+  // 选中输入框
+  input.select();
+  // 执行浏览器复制命令
+  document.execCommand('Copy');
+  // 复制后移除输入框
+  input.remove();
+};
+
 export default {
+  copyToClipboard,
   formatPhoneNumber,
   tableMarqueeSeamless,
   actionUrl,
