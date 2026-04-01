@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 @mixin flex-align {
   display: flex;
@@ -17,7 +17,7 @@
   }
 
   .el-form-item__label::after {
-    content: " :";
+    content: ' :';
   }
 }
 
@@ -42,7 +42,6 @@
 
 @mixin el-form-disabled-css-fzfff {
   @include el-form-disabled-input($fzcolor);
-
 }
 
 @mixin el-form-disabled-fzfff {
@@ -51,7 +50,6 @@
   }
 
   .is-disabled {
-
     *,
     .el-radio__inner::after {
       cursor: default !important;
@@ -90,7 +88,6 @@
   }
 
   .el-input-group--append.is-disabled {
-
     .el-input__wrapper {
       box-shadow: 0 0 0 1px #eee inset;
     }
@@ -182,7 +179,6 @@
   .el-icon-arrow-right:before {
     color: $fzcolor;
   }
-
 }
 
 @mixin patm {
@@ -216,7 +212,7 @@
 
 @mixin clearfix {
   &:after {
-    content: "";
+    content: '';
     display: table;
     clear: both;
   }
@@ -297,9 +293,7 @@
 //$w:大小
 //$borderColor：线条颜色
 //$bg：背景
-@mixin triangle($position, $w,
-  $borderColor,
-  $bg) {
+@mixin triangle($position, $w, $borderColor, $bg) {
   .popper__arrow {
     position: absolute;
     bottom: 0;
@@ -307,7 +301,7 @@
   }
 
   .popper__arrow::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 0px;
     height: 0px;
@@ -316,7 +310,7 @@
   }
 
   .popper__arrow::before {
-    content: "";
+    content: '';
     position: absolute;
     z-index: 1;
     width: 0px;
@@ -332,7 +326,7 @@
     visibility: hidden;
     display: block;
     font-size: 0;
-    content: " ";
+    content: ' ';
     clear: both;
     height: 0;
   }

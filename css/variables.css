@@ -1,0 +1,18 @@
+/*
+ * @Descripttion: Sustainable
+ * @version: 1.0.0
+ * @Author: Kenny
+ * @Date: 2024-09-10 11:34:01
+ * @LastEditors: ~
+ * @LastEditTime: 2024-09-13 12:01:00
+ */
+:export {
+  menuText: #e9e7e7;
+  menuActiveText: #ffd04b;
+  subMenuActiveText: #0ac8db;
+  menuBg: #304156;
+  menuHover: #249fed;
+  subMenuBg: #1f2d3d;
+  subMenuHover: #249fed;
+  sideBarWidth: 246px;
+  bgfzColor: #e5f7ff; }

@@ -1,5 +1,19 @@
-@import './product/stylenew.css';
+@import './product/stylenew.scss';
 
 //依赖variables
-@import "./toolStyle/index.scss";
-@import "./common/index.scss";
+// @import './toolStyle/index.scss';
+// @import './common/index.scss';
+
+.snapshot {
+  display: flex;
+  justify-self: flex-start;
+
+  .icon {
+    width: 550px;
+    margin-right: 5px;
+  }
+
+  .icon-min {
+    width: 100px;
+  }
+}

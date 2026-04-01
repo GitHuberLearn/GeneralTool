@@ -1,15 +1,21 @@
-@import "./tools/variables.scss";
-@import "./tools/fixStyle.scss";
-@import "./tools/mixin.scss";
-@import "./tools/element-ui.scss";
+@import './tools/variables.scss';
+@import './tools/fixStyle.scss';
+@import './tools/mixin.scss';
+@import './tools/element-ui.scss';
 
 body {
   height: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, Arial, sans-serif;
+  font-family:
+    Helvetica Neue,
+    Helvetica,
+    PingFang SC,
+    Hiragino Sans GB,
+    Microsoft YaHei,
+    Arial,
+    sans-serif;
 }
 
 // button
@@ -199,7 +205,6 @@ li {
   color: $violet !important;
 }
 
-
 .fzred {
   color: $red !important;
 }
@@ -211,7 +216,6 @@ li {
 .fzcolor_1ac9ff {
   color: $fzcolor_1ac9ff !important;
 }
-
 
 .fzcolor_00FFF4 {
   color: $fzcolor_00FFF4 !important;
@@ -359,7 +363,6 @@ li {
   @include wh;
   @include patm;
 }
-
 
 //text-align
 .tac {
@@ -583,8 +586,6 @@ iframe {
   }
 }
 
-
-
 //背景
 .grid-purple-bg {
   .bg-purple {
@@ -594,7 +595,6 @@ iframe {
     background-size: 100% 100%;
 
     .repertLeft {
-
       .totalTxt,
       .totalNum {
         color: #fff;

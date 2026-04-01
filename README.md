@@ -4,26 +4,74 @@
  * @Author: Eric
  * @Date: 2022-10-08 15:53:31
  * @LastEditors: ~
- * @LastEditTime: 2025-01-06 15:48:14
+ * @LastEditTime: 2026-04-01 18:12:10
 -->
-
-# GeneralTool
-
-## 介绍
-
-## 1 GeneralTool：通用型工具
+# GeneralTool：通用型工具 2022-10-08 - 202x-xx-xx
 
 ```bash
 # 作为通用型工具独立页面
 * 来源：WebTools
-+ 1.加入layui
-+ 2.添加自定义日期功能
-+ 3.引入sass
-+ 4.后期仅在本项目对项目通用型工具进行更新
+- 后期仅在本项目对项目通用型工具进行更新
 * styles：*toolStyle、common
 * mixins：*tableMixin【tableMixinDome_Upload】
 * help：*index【实时更新方法】
 * utils：*index【实时更新方法】
+```
+
+## 项目开发
+
+### 运行
+
+```bash
+- 1.  一般的用工具 Vscode 导入根目录建立项目使用 serve 启动
+    Live Server › Settings: Multi Root Workspace Name (清空用了选择工作区)
+- 2.安装sass:npm install -g sass
+- 2.1  编译scss：sass xx.scss xx.css
+- 2.2 监视编译：sass --watch xx.scss:xx.css
+```
+
+### 发布
+
+```bash
+# 构建环境
+- https://githuberlearn.github.io/GeneralTool/
+```
+
+### 使用
+
+```shell
+### CloudHMI 介绍
+xxx（组件名称）
+├── CloudHMI 
+│   └── view// 界面
+│   └── js // 方法
+```
+
+### 代码提交
+
+```bash
+- * x
+```
+
+## 项目里程碑 2022-10-08 ~
+
+### 项目(xx)明细 2022-10-08 ~
+
+```bash
+# 总控
+- main：2022-10-08 ING
+* 来源：自创
+# 版本
+## main1.0（2022-10-08 ~ 2025-06-09)
++ 加入layui
++ 添加自定义日期功能
++ 引入sass
+
+⭐ 状态说明
+- ING：属于进行中，未合并到master
+- DONE：完成状态，已经合并到master
+- DONE-MOCK：完成状态，仅是模拟数据
+- PAUSE：暂停状态
 ```
 
 ## 软件架构

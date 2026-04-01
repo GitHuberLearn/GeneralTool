@@ -4,25 +4,25 @@
  * updateNewRemove：新项目移除此方式
  * 实时更新方法
  */
-import moment from 'moment';
-import 'echarts-gl';
-import Highcharts from 'highcharts';
-import HighchartsMore from 'highcharts/highcharts-more';
-import Highcharts3D from 'highcharts/highcharts-3d';
-import HighchartsNoData from 'highcharts/modules/no-data-to-display';
-import HighStock from 'highcharts/highstock';
-import solidGauge from 'highcharts/modules/solid-gauge';
-import variable from 'highcharts/modules/variable-pie';
-import cylinder from 'highcharts/modules/cylinder';
-import XEUtils from 'xe-utils';
-HighchartsMore(Highcharts);
-Highcharts3D(Highcharts);
-HighchartsNoData(Highcharts);
-solidGauge(Highcharts);
-variable(Highcharts);
-cylinder(Highcharts);
-import help from '@/help';
-const { color_tone } = help;
+// import moment from 'moment';
+// import 'echarts-gl';
+// import Highcharts from 'highcharts';
+// import HighchartsMore from 'highcharts/highcharts-more';
+// import Highcharts3D from 'highcharts/highcharts-3d';
+// import HighchartsNoData from 'highcharts/modules/no-data-to-display';
+// import HighStock from 'highcharts/highstock';
+// import solidGauge from 'highcharts/modules/solid-gauge';
+// import variable from 'highcharts/modules/variable-pie';
+// import cylinder from 'highcharts/modules/cylinder';
+// import XEUtils from 'xe-utils';
+// HighchartsMore(Highcharts);
+// Highcharts3D(Highcharts);
+// HighchartsNoData(Highcharts);
+// solidGauge(Highcharts);
+// variable(Highcharts);
+// cylinder(Highcharts);
+// import help from '/help';
+// const { color_tone } = help;
 
 /**
  *
@@ -309,6 +309,28 @@ export function getCustomMonth(param) {
  * @returns n天数
  * updateNewRemove
  */
+// js 模拟
+const XEUtils = {
+  getWhatDay: function (time, n) {
+    const date = new Date(time);
+    date.setDate(date.getDate() + n);
+    return date;
+  },
+  toDateString: function (date, type) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    if (type === 'yyyy') {
+      return `${year}`;
+    } else if (type === 'yyyy-MM') {
+      return `${year}-${month}`;
+    } else if (type === 'yyyy-MM-dd') {
+      return `${year}-${month}-${day}`;
+    } else {
+      return date.toString();
+    }
+  },
+};
 export function getRecentDate(n, type) {
   let day = XEUtils.getWhatDay(new Date(), n);
   type = type ? type : 'yyyy-MM-dd';
@@ -1072,11 +1094,11 @@ export const dateNs = date.slice(1, 8);
 
 //前5个月的月份
 const months = [
-  moment(new Date()).subtract(4, 'months').format('YYYY-MM'),
-  moment(new Date()).subtract(3, 'months').format('YYYY-MM'),
-  moment(new Date()).subtract(2, 'months').format('YYYY-MM'),
-  moment(new Date()).subtract(1, 'months').format('YYYY-MM'),
-  moment(new Date()).subtract(0, 'months').format('YYYY-MM'),
+  //   moment(new Date()).subtract(4, 'months').format('YYYY-MM'),
+  //   moment(new Date()).subtract(3, 'months').format('YYYY-MM'),
+  //   moment(new Date()).subtract(2, 'months').format('YYYY-MM'),
+  //   moment(new Date()).subtract(1, 'months').format('YYYY-MM'),
+  //   moment(new Date()).subtract(0, 'months').format('YYYY-MM'),
 ];
 //前三个月含本月
 export const monthNs = months.slice(2, 5);
@@ -1176,25 +1198,25 @@ const copyToClipboard = (context) => {
   input.remove();
 };
 
-export default {
-  copyToClipboard,
-  formatPhoneNumber,
-  tableMarqueeSeamless,
-  actionUrl,
-  uploadFileAPI, //视频图片api
-  getNextArray,
-  getKeyItem,
-  ...help,
-  initIndexDB,
-  compare,
-  getRecentDate, //updateNewRemove
-  getCustomDate,
-  getRecentMonth, //updateNewRemove
-  getCustomMonth,
-  getRecentDate,
-  getRecentYear,
-  parseTime,
-  bgFunUrl,
-  age_cofig,
-  resetForm,
-};
+// export default {
+//   copyToClipboard,
+//   formatPhoneNumber,
+//   tableMarqueeSeamless,
+//   actionUrl,
+//   uploadFileAPI, //视频图片api
+//   getNextArray,
+//   getKeyItem,
+//   //...help,
+//   initIndexDB,
+//   compare,
+//   getRecentDate, //updateNewRemove
+//   getCustomDate,
+//   getRecentMonth, //updateNewRemove
+//   getCustomMonth,
+//   getRecentDate,
+//   getRecentYear,
+//   parseTime,
+//   bgFunUrl,
+//   age_cofig,
+//   resetForm,
+// };
