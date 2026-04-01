@@ -1,0 +1,79 @@
+<!--
+ * @Descripttion: 外站技术
+ * @version: 1.0.0
+ * @Author: YangKe
+ * @Date: 2019-12-17 09:41:06
+ * @LastEditors: ~
+ * @LastEditTime: 2025-03-05 14:51:10
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<title>GeneralTool</title>
+	<!--common css/js-->
+	<script src="js/common/common-cloud.js" type="text/javascript" charset="utf-8"></script>
+	<!--声明css,js变量-->
+	<script type="text/javascript">
+		var LSList = {
+			type1: 'link',
+			type2: 'script',
+			//引入的路径列表
+			list1: [
+			],
+			list2: [
+			]
+		};
+	</script>
+	<!--About css-->
+	<script type="text/javascript">writeImportFile(LSList.type1, LSList.list1);</script>
+</head>
+
+<body class="catalogue-url">
+	<pre class="foldBox">
+		GeneralTool：通用型CDN工具类方法
+		<span class="common-btn default">
+			<a href="http://general-tool.s3-website-us-east-1.amazonaws.com" target="_blank" rel="noopener noreferrer">S3</a>
+		</span>
+		<span class="common-btn default" title="加速静态系统" >
+			<a href="https://d1dz6z4cucwyf1.cloudfront.net"target="_blank" rel="noopener noreferrer">cloudfront-不会实时更新需要通过“创建失效”清除缓存</a>
+		</span>
+	</pre>
+	<p class="title"><i class="lins"></i>CSS</p>
+	<ol>
+		<li><a href="./css/index.css">CSS</a></li>
+	</ol>
+	<p class="title"><i class="lins"></i>JS</p>
+	<ol>
+		<li><a href="./js/index.js">JS</a></li>
+		<li><a href="./js/utils/index.js">utils</a></li>
+	</ol>
+	<p class="title"><i class="lins"></i>图片</p>
+	<ol>
+		<li><img class="imgcon" src="images/view/1.png"></li>
+		<li><img class="imgcon" src="images/view/2.png"></li>
+		<li><img class="imgcon" src="images/view/3.png"></li>
+		<li><img class="imgcon" src="images/view/4.png"></li>
+		<li><img class="imgcon" src="images/view/5.png"></li>
+	</ol>
+</body>
+<!--Tripartite js-->
+<!--About js-->
+<script type="text/javascript">writeImportFile(LSList.type2, LSList.list2, true);</script>
+<script type="module">
+	let { dateNs } = await import(`${cube.gatewayURL_module}js/utils/index.js`);
+	let { getDateN } = await import(`${cube.gatewayURL_module}js/utils/mockData.js`);
+	console.log(dateNs);
+	console.log(getDateN(3))
+	$(function () {
+
+	})
+</script>
+
+</html>
