@@ -21,8 +21,10 @@
 // solidGauge(Highcharts);
 // variable(Highcharts);
 // cylinder(Highcharts);
-// import help from '/help';
-// const { color_tone } = help;
+// import help from '@/help';
+// const help = import(`${cube.gatewayURL_module}/help/index.js`);
+
+// console.log(help);
 
 /**
  *
@@ -993,18 +995,6 @@ export const toStartName = (name) => {
 };
 
 /**
- * 根据数组获取 色值
- * @param {*数组} indicator
- * @returns
- */
-export const marke_tone = (indicator) => {
-  let marke = {};
-  let cs = color_tone();
-  let cs1 = color_tone(0.3);
-  return indicator_cs(indicator, marke, cs, cs1);
-};
-
-/**
  * @param {*数组或数值} indicator
  * @param {*返回Html} marke
  * @param {*色值1} arrcs
@@ -1198,25 +1188,25 @@ const copyToClipboard = (context) => {
   input.remove();
 };
 
-// export default {
-//   copyToClipboard,
-//   formatPhoneNumber,
-//   tableMarqueeSeamless,
-//   actionUrl,
-//   uploadFileAPI, //视频图片api
-//   getNextArray,
-//   getKeyItem,
-//   //...help,
-//   initIndexDB,
-//   compare,
-//   getRecentDate, //updateNewRemove
-//   getCustomDate,
-//   getRecentMonth, //updateNewRemove
-//   getCustomMonth,
-//   getRecentDate,
-//   getRecentYear,
-//   parseTime,
-//   bgFunUrl,
-//   age_cofig,
-//   resetForm,
-// };
+export default {
+  copyToClipboard,
+  formatPhoneNumber,
+  tableMarqueeSeamless,
+  actionUrl,
+  uploadFileAPI, //视频图片api
+  getNextArray,
+  getKeyItem,
+  //...help,
+  initIndexDB,
+  compare,
+  getRecentDate, //updateNewRemove
+  getCustomDate,
+  getRecentMonth, //updateNewRemove
+  getCustomMonth,
+  getRecentDate,
+  getRecentYear,
+  parseTime,
+  bgFunUrl,
+  age_cofig,
+  resetForm,
+};

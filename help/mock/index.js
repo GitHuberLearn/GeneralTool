@@ -236,8 +236,21 @@ const successHaveData = (key, data) => {
   return successStatus(key) && hasValue(data);
 };
 
+/**
+ * 根据数组获取 色值
+ * @param {*数组} indicator
+ * @returns
+ */
+const marke_tone = (indicator) => {
+  let marke = {};
+  let cs = color_tone();
+  let cs1 = color_tone(0.3);
+  return indicator_cs(indicator, marke, cs, cs1);
+};
+
 export default {
   ...control,
+  marke_tone,
   successHaveData,
   openWeather,
   usageApplicationData,
