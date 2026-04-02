@@ -9,6 +9,12 @@
 if (CDNIS) {
   //CDN接入成功
   //外网使用
+  // document.write(
+  //   "<script type='text/javascript' src='https://cdn.jsdmirror.com/npm/layuicdns@1.6.4/layui/layui.js'></script>",
+  // ); //依赖layui 可以初始化
+  // document.write(
+  //   "<script type='text/javascript' src='https://www.layuicdn.com/layui/layui.all.js'></script>",
+  // ); //依赖layui,实践证明没有all，没法异步加载
   document.write(
     "<script type='text/javascript' src='https://cdn.bootcdn.net/ajax/libs/layui/2.5.6/layui.min.js'></script>",
   ); //依赖layui 可以初始化
@@ -18,6 +24,11 @@ if (CDNIS) {
 } else {
   //CDN接入失败
   //内网使用-本地资源
+  // document.write(
+  //   "<script type='text/javascript' src='" +
+  //     gatewayURL +
+  //     "/api_resource/plugins/layuiList/layui/layui.all.js'></script>",
+  // );
   document.write(
     "<script type='text/javascript' src='" +
       gatewayURL +
@@ -30,6 +41,11 @@ if (CDNIS) {
   ); //依赖echarts请使用 如果项目有请忽略
 }
 
+// document.write(
+//   "<script type='text/javascript' src='" +
+//     gatewayURL +
+//     "/api_resource/plugins/layuiList/layui/lay/modules/formSelects.js'></script>",
+// );
 $(function () {
   //layui声明模块
   layui

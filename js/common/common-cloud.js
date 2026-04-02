@@ -16,22 +16,22 @@ CUBE = function () {
 cube = new CUBE();
 var gatewayURL = cube.gatewayURL_basics;
 //声明公共css,js变量
-var CDNIS = true;
+var CDNIS = !true;
 var LSList = {
   type1: 'link',
   type2: 'script',
   type1_scss: 'link_scss',
   // 引入的路径列表
   list1: [
-    '/api_resource/plugins/layui/css/layui.css',
+    '/api_resource/plugins/layuiList/layui/css/layui.css',
     '/api_resource/lib/stylenew.css',
     '/css/index.css',
   ],
   list2: [
     '/api_resource/plugins/jquery/jquery.min.js',
-    '/plugins/lib/xe-utils.js',
-    //'/plugins/layer/layer.js', //目前layui还没有实现全局调用，先加入 需要在layui前面
-    '/api_resource/plugins/layui/layui.js',
+    '/api_resource/plugins/lib/xe-utils.js',
+    //'/api_resource/plugins/layuiList/layer/layer.js', //目前layui还没有实现全局调用，先加入 需要在layui前面
+    // '/api_resource/plugins/layuiList/layui/layui.js',
     '/api_resource/lib/stylenew.js',
     '/js/product/stylenew.js', //本部js
   ],
