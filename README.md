@@ -34,7 +34,10 @@
 
 ```bash
 # 构建环境
-- https://githuberlearn.github.io/GeneralTool/
+- https://githuberlearn.github.io/GeneralTool
+- 后期移除：
++ S3: http://general-tool.s3-website-us-east-1.amazonaws.com
++ 加速静态系统: https://d1dz6z4cucwyf1.cloudfront.net
 ```
 
 ### 使用

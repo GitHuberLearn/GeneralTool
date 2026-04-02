@@ -24,7 +24,6 @@ var LSList = {
   // 引入的路径列表
   list1: [
     '/api_resource/plugins/layuiList/layui/css/layui.css',
-    '/api_resource/lib/stylenew.css',
     '/css/index.css',
   ],
   list2: [
@@ -32,7 +31,7 @@ var LSList = {
     '/api_resource/plugins/lib/xe-utils.js',
     //'/api_resource/plugins/layuiList/layer/layer.js', //目前layui还没有实现全局调用，先加入 需要在layui前面
     // '/api_resource/plugins/layuiList/layui/layui.js',
-    '/api_resource/lib/stylenew.js',
+    '/api_resource/lib/control/js/stylenew.js',
     '/js/product/stylenew.js', //本部js
   ],
 };
