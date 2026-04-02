@@ -87,13 +87,12 @@
 <script type="module">
     const utils = await import(`${cube.gatewayURL_module}/js/utils/index.js`);
     const {sexType,dateNs} = utils.default
-    console.log(sexType);
-    console.log(dateNs);
-    
+    console.log('help: ',sexType);
+    console.log('utils',dateNs);
     const { getDateN } = await import(
         `${cube.gatewayURL_module}/js/utils/mockData.js`
     );
-    console.log(getDateN(3));
+    console.log('mockData: ', getDateN(3));
     $(function () { });
 </script>
 
