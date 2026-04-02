@@ -17,7 +17,7 @@
       content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <title>camera</title>
+    <title>Vue</title>
     <!--common css/js-->
     <script
       src="/js/common/common-cloud.js"
@@ -70,7 +70,7 @@
     <!--mvvm-->
     <!--view -->
     <div id="app">
-      <h1>camera</h1>
+      <h1>Vue</h1>
       <div ref="wrapper">
         <div class="chart" ref="videoEl">{{info}}</div>
         <div @click="shoot" class="shoot btn btn-submit">点击</div>
@@ -87,7 +87,7 @@
   <script type="module">
     var data = {
       message: 'hello message',
-      info: 'hello info',
+      info: 'hello Vue',
       isShow: true,
       wrapper: null,
       videoEl: null,
@@ -106,7 +106,7 @@
       },
       methods: {
         async checkCamera() {
-          this.info = 'hello message to info';
+          this.info = 'Hello message to Vue';
         },
         shoot(ev) {
           console.log(ev);
