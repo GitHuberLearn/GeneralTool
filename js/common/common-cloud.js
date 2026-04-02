@@ -90,23 +90,10 @@ var writeImportFile = function (type, list, isBasics) {
 document.write(
   '<link rel="shortcut icon" type="image/x-icon" href="' +
     cube.gatewayURL_basics +
-    'favicon.ico">',
+    '/favicon.ico">',
 );
-
 writeImportFile(LSList.type1, LSList.list1, true);
 writeImportFile(LSList.type2, LSList.list2, true);
-
-/**
- * 详情页面log开关  false：关  true：开
- * @param data 打印的Log信息
- */
-
-function log(data) {
-  var isOpenLog = true;
-  if (isOpenLog) {
-    console.log(data);
-  }
-}
 
 //ie9及以上版本使用
 if (IEVersion() >= 9) {
@@ -136,6 +123,49 @@ if (IEVersion() >= 9) {
     },
     true,
   );
+  // 初始处理所有元素
+  document.addEventListener('load', function () {});
+  //document.querySelectorAll('*').forEach(processElement);
+  // 监控动态添加的元素
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) replaceAtInAttributes(node);
+      });
+    });
+  });
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+  });
+}
+
+function replaceAtInAttributes(element) {
+  const attributes = ['src', 'href', 'data-src', 'xlink:href'];
+  attributes.forEach((attr) => {
+    if (element.hasAttribute(attr)) {
+      const val = element.getAttribute(attr);
+      if (val.includes('@')) {
+        element.setAttribute(attr, val.replace(/@/g, cube.gatewayURL_basics));
+      }
+    }
+  });
+}
+function processElement(el) {
+  replaceAtInAttributes(el);
+  // 处理子元素
+  el.querySelectorAll ? el.querySelectorAll('*').forEach(processElement) : [];
+}
+/**
+ * 详情页面log开关  false：关  true：开
+ * @param data 打印的Log信息
+ */
+
+function log(data) {
+  var isOpenLog = true;
+  if (isOpenLog) {
+    console.log(data);
+  }
 }
 
 /*

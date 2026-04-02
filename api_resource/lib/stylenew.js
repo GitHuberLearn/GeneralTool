@@ -4,7 +4,7 @@
  * @Author: YangKe
  * @Date: 2019-12-19 19:48:44
  * @LastEditors: ~
- * @LastEditTime: 2026-04-02 10:00:54
+ * @LastEditTime: 2026-04-02 11:36:05
  */
 if (CDNIS) {
   //CDN接入成功
@@ -91,9 +91,7 @@ $(function () {
   //表单 样式
   //tableStle()
 });
-
 /***=========  layer组件性功能 520 =========***/
-
 /*
  * layer组件性js
  */
