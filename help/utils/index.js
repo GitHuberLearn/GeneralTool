@@ -4,9 +4,9 @@
  * @Author: Kenny
  * @Date: 2024-05-13 20:33:24
  * @LastEditors: ~
- * @LastEditTime: 2026-03-17 12:07:07
+ * @LastEditTime: 2026-04-02 18:02:07
  */
-import atlas from './control/atlas';
+//import atlas from './control/atlas.js';
 
 /**
  * 返回上传api
@@ -67,5 +67,5 @@ const uploadFileAPI1 = ({
 
 export default {
   uploadFileAPI,
-  ...atlas,
+  //...atlas,
 };

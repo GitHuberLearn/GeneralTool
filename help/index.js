@@ -4,11 +4,12 @@
  * @Author: Kenny
  * @Date: 2023-01-05 14:18:41
  * @LastEditors: ~
- * @LastEditTime: 2026-04-02 17:35:33
+ * @LastEditTime: 2026-04-02 17:56:11
  */
-// import mock from './mock';
-// import utils from './utils';
-// import requestApi from './webApi/index';
+import mock from './mock/index.js';
+import utils from './utils/index.js';
+//import requestApi from './webApi/index.js';
+
 /**
  * 性别类型
  */
@@ -78,8 +79,8 @@ export default {
   dbKey,
   orderInfor,
   sexType,
-  //   ...requestApi,
-  //   ...utils,
-  //   ...mock,
+  //...requestApi,
+  ...utils,
+  ...mock,
   actionPort,
 };

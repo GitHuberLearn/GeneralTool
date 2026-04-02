@@ -6,8 +6,8 @@
  * @LastEditors: ~
  * @LastEditTime: 2025-09-03 11:28:54
  */
-import citymini from './area/cityPM';
-import mapDataChina from './area/mapDataChina';
+import citymini from './area/cityPM.js';
+import mapDataChina from './area/mapDataChina.js';
 
 const dataDefault = () => {
   return {

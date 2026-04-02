@@ -6,7 +6,7 @@
  * @LastEditors: ~
  * @LastEditTime: 2024-12-11 10:35:52
  */
-import requestWebUI from "./request";
+import requestWebUI from './request.js';
 
 const API = process.env.VUE_APP_BASE_API;
 const BUSINESS = process.env.VUE_APP_WEBUI_API_BUSINESS;
@@ -18,15 +18,15 @@ const FOXMOCK = process.env.VUE_APP_WEBUI_API_FOXMOCK;
 const REPORT = process.env.VUE_APP_BASE_API_REPORT;
 
 export default {
-   //请求源
-   REPORT,
-   FOXMOCK,
-   COM,
-   API,
-   HEALTH,
-   PORTA,
-   BUSINESS,
-   SEERREPORT,
-   //请求axios逻辑
-   requestWebUI,
+  //请求源
+  REPORT,
+  FOXMOCK,
+  COM,
+  API,
+  HEALTH,
+  PORTA,
+  BUSINESS,
+  SEERREPORT,
+  //请求axios逻辑
+  requestWebUI,
 };

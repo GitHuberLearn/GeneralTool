@@ -6,20 +6,20 @@
  * @LastEditors: ~
  * @LastEditTime: 2025-06-26 13:45:22
  */
-import { delayedInit } from "./config";
+import { delayedInit } from './config.js';
 
 /**
  * 图谱 配置
  */
 const _config = {
   confine: true,
-  trigger: "item", //item axis
-  backgroundColor: "#0E67CE",
-  borderColor: "#0E67CE",
+  trigger: 'item', //item axis
+  backgroundColor: '#0E67CE',
+  borderColor: '#0E67CE',
   padding: 3,
   textStyle: {
-    color: "#e5f7ff",
-    fontSize: "14",
+    color: '#e5f7ff',
+    fontSize: '14',
   },
 };
 /**
@@ -41,7 +41,7 @@ export const initEchart_config = {
  */
 export const initEchartView = (param) => {
   const { el, config, bg, noDataColor } = param;
-  if (!el) return "error";
+  if (!el) return 'error';
   if (!config) {
     config = echartsNoData(bg, noDataColor);
   }
@@ -64,12 +64,12 @@ export const initEchart = (echart, config, bg, noDataColor) => {
  * echarts 无数据
  */
 export const echartsNoData = (bg, noDataColor) => {
-  let text = bg ? "" : "暂无数据";
+  let text = bg ? '' : '暂无数据';
   return {
     title: {
       text,
-      x: "center",
-      y: "center",
+      x: 'center',
+      y: 'center',
       textStyle: NoDataStyle(noDataColor),
     },
   };
@@ -88,7 +88,7 @@ export const initHchart_config = {
  * Hchart 初始化
  */
 export const initHchart = (el, config, bgs, flag) => {
-  if (!el) return "error";
+  if (!el) return 'error';
   if (!config) {
     if (el) {
       config = highchartsNoData(bgs);
@@ -125,7 +125,7 @@ export const initHchartView = ({
   HighStock,
   Highcharts,
 }) => {
-  if (!el) return "error";
+  if (!el) return 'error';
   if (!config) {
     if (el) {
       config = highchartsNoData(bgs);
@@ -158,8 +158,8 @@ export const initHchartView = ({
  * highchart 无数据
  */
 export const highchartsNoData = (bg, el) => {
-  let text = bg ? "" : "暂无数据";
-  let chart = { backgroundColor: "none" };
+  let text = bg ? '' : '暂无数据';
+  let chart = { backgroundColor: 'none' };
   if (el) {
     chart.renderTo = el;
   }
@@ -169,7 +169,7 @@ export const highchartsNoData = (bg, el) => {
       enabled: false,
     },
     lang: {
-      noData: "",
+      noData: '',
     },
     title: {
       text,
@@ -183,9 +183,9 @@ export const highchartsNoData = (bg, el) => {
  */
 const NoDataStyle = (noDataColor) => {
   return {
-    color: noDataColor ? noDataColor : "#3DF4F5",
-    fontWeight: "bold",
-    fontSize: "1.2rem",
+    color: noDataColor ? noDataColor : '#3DF4F5',
+    fontWeight: 'bold',
+    fontSize: '1.2rem',
   };
 };
 

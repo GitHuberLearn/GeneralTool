@@ -1,4 +1,4 @@
-import control from './control';
+import control from './control/index.js';
 /**
  * 应用使用情况数据
  * @returns
