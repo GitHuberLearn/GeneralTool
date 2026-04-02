@@ -21,10 +21,7 @@
 // solidGauge(Highcharts);
 // variable(Highcharts);
 // cylinder(Highcharts);
-// import help from '@/help';
-// const help = import(`${cube.gatewayURL_module}/help/index.js`);
-
-// console.log(help);
+import help from '../../help/index.js';
 
 /**
  *
@@ -68,7 +65,7 @@ const initIndexDB = async ({
  * @param {*Number} num
  * @returns 汉字
  */
-export function numToChinese(num) {
+function numToChinese(num) {
   const transNum = Number(num);
   // 检查是否为非负整数
   if (Number.isInteger(transNum) && transNum >= 0) {
@@ -131,7 +128,7 @@ export function numToChinese(num) {
  * 一般查询重置
  * @param {object} param：*that：this,refName:queryForm(默认)
  */
-export function resetForm({ that, refName = 'queryForm' }) {
+function resetForm({ that, refName = 'queryForm' }) {
   if (that.$refs[refName]) {
     that.$refs[refName].resetFields();
   }
@@ -147,7 +144,7 @@ export function resetForm({ that, refName = 'queryForm' }) {
  * @returns
  */
 //数据结构参考 help -> mock -> data -> echart3DBar
-export function XYZ(data) {
+function XYZ(data) {
   const Ydata = (data) => {
     let maxArr = data.reduce((pre, next) => {
       return pre.data.length > next.data.length ? pre : next;
@@ -196,7 +193,7 @@ export function XYZ(data) {
  * @param {*是否反向} falg Blooleans 默认正向（从小到大）
  * @returns Array 默认从小到大的排序
  */
-export function compare(arrObj, key, falg) {
+function compare(arrObj, key, falg) {
   let list = JSON.parse(JSON.stringify(arrObj));
   const sort_fun = function (prop) {
     return function (obj1, obj2) {
@@ -225,14 +222,14 @@ export function compare(arrObj, key, falg) {
  * @param {*} time 默认5分钟
  * @returns
  */
-export function setInter_time(fn, time) {
+function setInter_time(fn, time) {
   fn();
   time = 1000 * (time ? time : 5 * 60);
   return setInterval(() => {
     fn();
   }, time);
 }
-export function setClear_time(TIMECLEAR) {
+function setClear_time(TIMECLEAR) {
   clearInterval(TIMECLEAR);
 }
 
@@ -241,7 +238,7 @@ export function setClear_time(TIMECLEAR) {
  * @param {*小数位数} n (默认2位)
  * @returns 保留小数点，符合四舍五入（有就保留，没有就不保留）
  */
-export function formatterFloat(cellValue, n) {
+function formatterFloat(cellValue, n) {
   const d = n ? n : 2;
   return parseFloat(parseFloat(cellValue).toFixed(d));
 }
@@ -252,7 +249,7 @@ export function formatterFloat(cellValue, n) {
  * @param {number} decimals - 保留的小数位数（默认2位）
  * @returns {number} 返回四舍五入后的数字
  */
-export const roundToDecimal = (num, decimals = 2) => {
+const roundToDecimal = (num, decimals = 2) => {
   if (isNaN(num) || isNaN(decimals)) {
     throw new Error('参数必须是数字');
   }
@@ -266,7 +263,7 @@ export const roundToDecimal = (num, decimals = 2) => {
  * @param {*时间类型} type 默认yyyy
  * @returns n个月月份
  */
-export function getRecentYear(news, type) {
+function getRecentYear(news, type) {
   const time = XEUtils.isObject(news) ? news.time : new Date();
   const num = XEUtils.isObject(news) ? news.num : news;
   let month = XEUtils.getWhatYear(time, num);
@@ -281,7 +278,7 @@ export function getRecentYear(news, type) {
  * @returns n个月月份
  * updateNewRemove
  */
-export function getRecentMonth(news, type) {
+function getRecentMonth(news, type) {
   const time = XEUtils.isObject(news) ? news.time : new Date();
   const num = XEUtils.isObject(news) ? news.num : news;
   let month = XEUtils.getWhatMonth(time, num);
@@ -295,7 +292,7 @@ export function getRecentMonth(news, type) {
  * type 默认yyyy-MM
  * @returns n个月月份
  */
-export function getCustomMonth(param) {
+function getCustomMonth(param) {
   const { news = null, type = 'yyyy-MM' } = param
     ? param
     : { news: null, type: 'yyyy-MM' };
@@ -333,7 +330,7 @@ const XEUtils = {
     }
   },
 };
-export function getRecentDate(n, type) {
+function getRecentDate(n, type) {
   let day = XEUtils.getWhatDay(new Date(), n);
   type = type ? type : 'yyyy-MM-dd';
   return XEUtils.toDateString(day, type);
@@ -345,7 +342,7 @@ export function getRecentDate(n, type) {
  * type 默认yyyy-MM-dd
  * @returns n天数
  */
-export function getCustomDate(param) {
+function getCustomDate(param) {
   const { n = 0, type = 'yyyy-MM-dd' } = param
     ? param
     : { n: 0, type: 'yyyy-MM-dd' };
@@ -357,7 +354,7 @@ export function getCustomDate(param) {
  * @param {出生年月} birthday
  * @returns 年龄
  */
-export function age_cofig(birthday) {
+function age_cofig(birthday) {
   let age = '--';
   if (birthday) {
     const date = new Date().getFullYear();
@@ -371,7 +368,7 @@ export function age_cofig(birthday) {
  * @param {*Date} endTime 结束时间
  * @returns 时间区间min
  */
-export function timeSection(startTime, endTime) {
+function timeSection(startTime, endTime) {
   if (!startTime || !endTime) return;
   const section = (new Date(endTime) - new Date(startTime)) / (1000 * 60);
   return section;
@@ -383,7 +380,7 @@ export function timeSection(startTime, endTime) {
  * @param {string} [cFormat='{y}-{m}-{d} {h}:{i}:{s} {a}'] - 自定义格式，如 '{y}-{m}-{d}'
  * @returns {string|null} 格式化后的时间字符串，无效输入返回 null
  */
-export function parseTime(time, cFormat) {
+function parseTime(time, cFormat) {
   // 1. 处理无效输入
   if (!time) return null;
 
@@ -422,7 +419,7 @@ export function parseTime(time, cFormat) {
 /**
  * 对uniapp不兼容
  */
-export function parseTime1(time, cFormat) {
+function parseTime1(time, cFormat) {
   if (arguments.length === 0 || !time) {
     return null;
   }
@@ -474,7 +471,7 @@ export function parseTime1(time, cFormat) {
  *  大于一天情况，存在优先返回时间格式
  * @returns {string} 距离当下时间状态
  */
-export const formatTime = (time, option) => {
+const formatTime = (time, option) => {
   if (('' + time).length === 10) {
     time = parseInt(time) * 1000;
   } else {
@@ -516,7 +513,7 @@ export const formatTime = (time, option) => {
  * @param {string|number} time  时间戳 默认当前
  * @returns new Date
  */
-export function timestampProcessing(time) {
+function timestampProcessing(time) {
   //转换Number
   if (typeof time === 'string') {
     if (/^[0-9]+$/.test(time)) {
@@ -539,7 +536,7 @@ export function timestampProcessing(time) {
  * @param {string} url
  * @returns {Object}
  */
-export const param2Obj = (url) => {
+const param2Obj = (url) => {
   const search = decodeURIComponent(url.split('?')[1]).replace(/\+/g, ' ');
   if (!search) {
     return {};
@@ -562,7 +559,7 @@ export const param2Obj = (url) => {
  * @param {路由地址} PORT
  * @returns  返回当前环境地址
  */
-export function actionPort(PORT, uri) {
+function actionPort(PORT, uri) {
   const URL = `${PORT}`;
   if (uri) {
     return `${uri}/${PORT}`;
@@ -583,7 +580,7 @@ export function actionPort(PORT, uri) {
  * 本地无法测试-可以用actionUrl2避免
  * @returns {string}
  */
-export const actionUrl = () => {
+const actionUrl = () => {
   if (window.location.host.indexOf('localhost') > -1) {
     // return '/dev-api/api/common/v1/uploadAttachment/'
     return 'https://dev.seer-health.com/v1/mall/api/common/v1/uploadAttachment/';
@@ -600,7 +597,7 @@ export const actionUrl = () => {
 /**
  * 被uploadAPI替换
  */
-export const actionUrl2 = () => {
+const actionUrl2 = () => {
   if (window.location.host.indexOf('localhost') > -1) {
     return '/portal-api/nAdv/uploadFile';
   } else if (
@@ -638,7 +635,7 @@ const uploadFileAPI = (VIDEO, FOXMOCKAPI) => {
   return `${url}?type=${type}`;
 };
 
-export const actionUrl3 = () => {
+const actionUrl3 = () => {
   if (window.location.host.indexOf('localhost') > -1) {
     return 'https://dev.seer-health.com/v1/dealer/amusingFood/uploadFoodConfigUrl';
   } else if (
@@ -651,7 +648,7 @@ export const actionUrl3 = () => {
   }
 };
 
-export const actionUrl4 = () => {
+const actionUrl4 = () => {
   if (window.location.host.indexOf('localhost') > -1) {
     return 'https://dev.seer-health.com/v1/seer-consultation/file/uploadImg';
   } else if (
@@ -664,7 +661,7 @@ export const actionUrl4 = () => {
   }
 };
 
-export const bgFunUrl = () => {
+const bgFunUrl = () => {
   if (window.location.host.indexOf('localhost') > -1) {
     return 'https://dev.seer-health.com/v1/platform/personalReportForm/reportForm?userId=';
   } else if (
@@ -681,7 +678,7 @@ export const bgFunUrl = () => {
  * 深拷贝
  * @returns {}
  */
-export function deepCopy(obj, hash = new WeakMap()) {
+function deepCopy(obj, hash = new WeakMap()) {
   if (hash.has(obj)) return hash.get(obj);
   const cloneObj = Array.isArray(obj) ? [] : {};
   hash.set(obj, cloneObj);
@@ -690,7 +687,7 @@ export function deepCopy(obj, hash = new WeakMap()) {
   }
   return cloneObj;
 }
-export function isObj(obj) {
+function isObj(obj) {
   return (typeof obj === 'object' || typeof obj === 'function') && obj !== null;
 }
 
@@ -699,14 +696,14 @@ export function isObj(obj) {
  * @param {延迟时间} ms
  * @returns
  */
-export function sleep(ms = 1000) {
+function sleep(ms = 1000) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 /**
  * 对象判空
  * empty：false非空，true空
  */
-export const emptyObj = (obj) => {
+const emptyObj = (obj) => {
   for (const key in obj) {
     return false;
   }
@@ -717,7 +714,7 @@ export const emptyObj = (obj) => {
  * 判定是否对象
  * empty：false不是，true是
  */
-export const isObject = (obj) => {
+const isObject = (obj) => {
   return typeof obj === 'object' && obj !== null && !Array.isArray(obj);
 };
 
@@ -727,7 +724,7 @@ export const isObject = (obj) => {
  * @param {*小数位数} n (默认三位)
  * @returns
  */
-export function formatterNum(cellValue, n) {
+function formatterNum(cellValue, n) {
   const fs = cellValue.toString().split('.')[1];
   const len = fs ? fs.length : 0;
   const d = n ? n : 3;
@@ -738,7 +735,7 @@ export function formatterNum(cellValue, n) {
 /**
  * Echarts 初始化
  */
-export const initEchart = (echart, config, bg, color) => {
+const initEchart = (echart, config, bg, color) => {
   if (!config) {
     config = echartsNoData(bg, color);
   }
@@ -749,7 +746,7 @@ export const initEchart = (echart, config, bg, color) => {
 /**
  * echarts 无数据
  */
-export const echartsNoData = (bg, color) => {
+const echartsNoData = (bg, color) => {
   let text = bg ? '' : '暂无数据';
   return {
     title: {
@@ -764,7 +761,7 @@ export const echartsNoData = (bg, color) => {
 /**
  * Hchart 初始化
  */
-export const initHchart = (el, config, bgs, flag) => {
+const initHchart = (el, config, bgs, flag) => {
   if (!config) {
     if (el) {
       config = highchartsNoData(bgs);
@@ -796,7 +793,7 @@ export const initHchart = (el, config, bgs, flag) => {
 /**
  * highchart 无数据
  */
-export const highchartsNoData = (bg, el) => {
+const highchartsNoData = (bg, el) => {
   let text = bg ? '' : '暂无数据';
   let chart = { backgroundColor: 'none' };
   if (el) {
@@ -821,7 +818,7 @@ export const highchartsNoData = (bg, el) => {
 /**
  * @returns 无数据样式
  */
-export const NoDataStyle = (c) => {
+const NoDataStyle = (c) => {
   let color = c === 'admin' ? '#6D6D6D' : '#3DF4F5';
   return {
     color,
@@ -842,7 +839,7 @@ export const NoDataStyle = (c) => {
  * this.defineScroll.hoverStop = play;
  * 使用此组件事件需要通过事件委托绑定到el-table-marquee-seamless,防止浅拷贝事件不生效问题
  */
-export const tableMarqueeSeamless = (that, dom, list) => {
+const tableMarqueeSeamless = (that, dom, list) => {
   let config = {
     play: false,
     data: list,
@@ -877,7 +874,7 @@ export const tableMarqueeSeamless = (that, dom, list) => {
  * @returns
  * @use this.allData = tableMarquee(this.$refs.table,res.data);
  */
-export const tableMarquee = (table, list) => {
+const tableMarquee = (table, list) => {
   if (!table) return;
   const divDataH = table.bodyWrapper.clientHeight;
   const h =
@@ -929,7 +926,7 @@ const marqueeInterval = (bodyWrapper, len) => {
   return timer;
 };
 
-export const tableMarquees = (table, list) => {
+const tableMarquees = (table, list) => {
   if (!table) return;
   const divDataH = table.bodyWrapper.clientHeight;
   const h =
@@ -981,7 +978,7 @@ const marqueeIntervals = (bodyWrapper, len) => {
  * @param {*姓名} name
  * @returns
  */
-export const toStartName = (name) => {
+const toStartName = (name) => {
   if (!name) {
     return;
   }
@@ -1001,7 +998,7 @@ export const toStartName = (name) => {
  * @param {*色值2} arrcs1
  * @returns
  */
-export const indicator_cs = (indicator, marke, arrcs, arrcs1) => {
+const indicator_cs = (indicator, marke, arrcs, arrcs1) => {
   let s = 0;
   let num = indicator instanceof Array ? indicator.length : indicator;
   let cs = [];
@@ -1031,7 +1028,7 @@ export const indicator_cs = (indicator, marke, arrcs, arrcs1) => {
  * @param {值} num
  * @returns
  */
-export function oninput(num) {
+function oninput(num) {
   var str = num;
   var len1 = str.substr(0, 1);
   var len2 = str.substr(1, 1);
@@ -1061,7 +1058,7 @@ export function oninput(num) {
  * @param {*} num
  * @returns
  */
-export function toTimeString(val) {
+function toTimeString(val) {
   const t = val.split(' ');
   return t[1] === '00:00:00' ? t[0] : val;
 }
@@ -1078,9 +1075,9 @@ const date = [
   parseTime(new Date() - 0 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
 ];
 //前七天
-export const dateFs = date.slice(0, 7);
+const dateFs = date.slice(0, 7);
 //前七天含今天
-export const dateNs = date.slice(1, 8);
+const dateNs = date.slice(1, 8);
 
 //前5个月的月份
 const months = [
@@ -1091,10 +1088,10 @@ const months = [
   //   moment(new Date()).subtract(0, 'months').format('YYYY-MM'),
 ];
 //前三个月含本月
-export const monthNs = months.slice(2, 5);
+const monthNs = months.slice(2, 5);
 
 //后台图片存放地址
-export const imgBaseUrl = window.location.origin;
+const imgBaseUrl = window.location.origin;
 
 /**
  * 获取特定item
@@ -1120,7 +1117,7 @@ const getKeyItem = ({ list, keyID, ID, key }) => {
  * - type：类型
  * @returns
  */
-export function getNextArray({ arr, type }) {
+function getNextArray({ arr, type }) {
   if (!arr) return;
   const next = arr.indexOf(type) + 1;
   const nextList = arr[next];
@@ -1130,7 +1127,7 @@ export function getNextArray({ arr, type }) {
 /**
  * 判断手机号
  */
-export const isValidPhoneNumber = (phone) => {
+const isValidPhoneNumber = (phone) => {
   // 中国大陆手机号正则：11位，以1开头，第二位通常是3-9
   const regex = /^1[3-9]\d{9}$/;
   return regex.test(phone);
@@ -1162,7 +1159,7 @@ const formatPhoneNumber = (phone) => {
  * @param {*手机号} phone
  * @returns
  */
-export const toStartCellphone = (phone) => {
+const toStartCellphone = (phone) => {
   if (!phone) {
     return;
   }
@@ -1189,6 +1186,9 @@ const copyToClipboard = (context) => {
 };
 
 export default {
+  ...help,
+  dateFs,
+  dateNs,
   copyToClipboard,
   formatPhoneNumber,
   tableMarqueeSeamless,
@@ -1196,7 +1196,6 @@ export default {
   uploadFileAPI, //视频图片api
   getNextArray,
   getKeyItem,
-  //...help,
   initIndexDB,
   compare,
   getRecentDate, //updateNewRemove

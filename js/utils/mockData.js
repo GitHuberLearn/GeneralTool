@@ -4,15 +4,11 @@
  * @Author: Kenny
  * @Date: 2023-01-05 14:18:41
  * @LastEditors: ~
- * @LastEditTime: 2024-12-02 14:32:57
+ * @LastEditTime: 2026-04-02 17:51:51
  */
-import {
-  dateFs,
-  dateNs,
-  getRecentMonth,
-  getRecentDate,
-  parseTime,
-} from './index.js';
+import utils from './index.js';
+const { dateFs, dateNs, getRecentMonth, getRecentDate, parseTime } = utils;
+
 /**
  * mock数据
  * @param {string} key
