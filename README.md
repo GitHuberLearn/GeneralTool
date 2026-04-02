@@ -10,12 +10,12 @@
 
 ```bash
 # 作为通用型工具独立页面
-* 来源：WebTools
+* 来源: WebTools(Gitee)
 - 后期仅在本项目对项目通用型工具进行更新
-* styles：*toolStyle、common
-* mixins：*tableMixin【tableMixinDome_Upload】
-* help：*index【实时更新方法】
-* utils：*index【实时更新方法】
+* styles: *toolStyle、common
+* help: *index【实时更新方法】
+* layout: *tableMixin【tableMixinDome_Upload】
+* utils: *index【实时更新方法】
 ```
 
 ## 项目开发
@@ -62,7 +62,7 @@ xxx（组件名称）
 - main：2022-10-08 ING
 * 来源：自创
 # 版本
-## main1.0（2022-10-08 ~ 2025-06-09)
+## main1.0（2022-10-08 ~ 2025-xx-xx)
 + 加入layui
 + 添加自定义日期功能
 + 引入sass
