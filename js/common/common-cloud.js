@@ -115,21 +115,22 @@ if (IEVersion() >= 9) {
     'error',
     function (e) {
       var elem = e.target;
+      console.log(e);
       if (elem.tagName.toLowerCase() == 'img') {
         //特定class
         // logcat("加载异常标签名称=<" + elem.tagName.toLowerCase() + ">，标签id=" + elem.id + ",标签src=" + elem.src);
         if (elem.classList.contains('userIMG')) {
           //用户异常图片加载
-          elem.src = cube.gatewayURL_basics + 'images/error/user.png';
+          elem.src = cube.gatewayURL_basics + '/images/error/user.png';
         } else if (elem.classList.contains('logoIMG')) {
           //logo异常图片加载
-          elem.src = cube.gatewayURL_basics + 'images/logo.png';
+          elem.src = cube.gatewayURL_basics + '/images/logo.png';
         } else if (elem.classList.contains('media-object')) {
           //详情异常图片加载
-          elem.src = cube.gatewayURL_basics + 'images/error/nullifor.png';
+          elem.src = cube.gatewayURL_basics + '/images/error/data.png';
         } else {
           //其他
-          elem.src = cube.gatewayURL_basics + 'images/error/nullifor1.png';
+          elem.src = cube.gatewayURL_basics + '/images/error/404.png';
         }
       }
     },
