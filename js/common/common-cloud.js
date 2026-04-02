@@ -95,14 +95,72 @@ document.write(
 writeImportFile(LSList.type1, LSList.list1, true);
 writeImportFile(LSList.type2, LSList.list2, true);
 
+// 替换元素属性中的@符号
+setEleUrl();
+
 //ie9及以上版本使用
 if (IEVersion() >= 9) {
   //捕获图片异常处理  不兼容IE8
+  setErrorImg();
+}
+
+/**
+ * 替换元素属性中的@符号
+ * 1.初始处理所有元素
+ * 2.监控动态添加的元素
+ */
+function setEleUrl() {
+  //document.querySelectorAll('*').forEach(processElement);
+  // 监控动态添加的元素
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeType === 1) replaceAtInAttributes(node);
+      });
+    });
+  });
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+  });
+}
+
+/**
+ * 替换元素属性中的@符号
+ * @param {Object} element
+ */
+function replaceAtInAttributes(element) {
+  const attributes = ['src', 'href', 'data-src', 'xlink:href'];
+  attributes.forEach((attr) => {
+    if (element.hasAttribute(attr)) {
+      const val = element.getAttribute(attr);
+      if (val.includes('@')) {
+        element.setAttribute(attr, val.replace(/@/g, cube.gatewayURL_basics));
+      }
+    }
+  });
+}
+
+/**
+ * 处理元素
+ * @param {Object} el
+ */
+function processElement(el) {
+  replaceAtInAttributes(el);
+  // 处理子元素
+  el.querySelectorAll ? el.querySelectorAll('*').forEach(processElement) : [];
+}
+
+/**
+ * 替换img标签异常图片
+ * 1.用户异常图片加载 user.png
+ * 2.logo异常图片加载 logo.png
+ */
+function setErrorImg() {
   document.addEventListener(
     'error',
     function (e) {
       var elem = e.target;
-      console.log(e);
       if (elem.tagName.toLowerCase() == 'img') {
         //特定class
         // logcat("加载异常标签名称=<" + elem.tagName.toLowerCase() + ">，标签id=" + elem.id + ",标签src=" + elem.src);
@@ -123,44 +181,12 @@ if (IEVersion() >= 9) {
     },
     true,
   );
-  // 初始处理所有元素
-  document.addEventListener('load', function () {});
-  //document.querySelectorAll('*').forEach(processElement);
-  // 监控动态添加的元素
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      mutation.addedNodes.forEach((node) => {
-        if (node.nodeType === 1) replaceAtInAttributes(node);
-      });
-    });
-  });
-  observer.observe(document.documentElement, {
-    childList: true,
-    subtree: true,
-  });
 }
 
-function replaceAtInAttributes(element) {
-  const attributes = ['src', 'href', 'data-src', 'xlink:href'];
-  attributes.forEach((attr) => {
-    if (element.hasAttribute(attr)) {
-      const val = element.getAttribute(attr);
-      if (val.includes('@')) {
-        element.setAttribute(attr, val.replace(/@/g, cube.gatewayURL_basics));
-      }
-    }
-  });
-}
-function processElement(el) {
-  replaceAtInAttributes(el);
-  // 处理子元素
-  el.querySelectorAll ? el.querySelectorAll('*').forEach(processElement) : [];
-}
 /**
  * 详情页面log开关  false：关  true：开
  * @param data 打印的Log信息
  */
-
 function log(data) {
   var isOpenLog = true;
   if (isOpenLog) {
