@@ -1,4 +1,5 @@
-@import url(../plugins/layuiList/layui/css/layui.css);
-@import url(base.css);
-@import url(iesy.css);
-@import url(stylenew.scss);
+// 基础样式
+@import 'base/index.scss'; //@import url(/api_resource/lib/control/css/base/index.css);
+//依赖variables - 对于构建工具加入全局无需反复引入
+@import 'toolStyle/index.scss';
+@import 'common/index.scss';

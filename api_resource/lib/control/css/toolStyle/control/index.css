@@ -1,15 +1,25 @@
 /*
 Error: Undefined variable: "$mainbg".
-        on line 147 of E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/tools/mixin.scss, in `el-select-dropdown'
-        from line 575 of E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/tools/element-ui.scss
-        from line 4 of E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/index.scss
-        from line 1 of E:\GITCode\GIT\Github\GeneralTool\css\toolStyle\index.scss
+        on line 147 of E:/GITCode/GIT/Github/GeneralTool/api_resource/lib/control/css/toolStyle/control/tools/mixin.scss, in `el-select-dropdown'
+        from line 575 of E:/GITCode/GIT/Github/GeneralTool/api_resource/lib/control/css/toolStyle/control/tools/element-ui.scss
+        from line 4 of E:\GITCode\GIT\Github\GeneralTool\api_resource\lib\control\css\toolStyle\control\index.scss
+
+142:   .bottomBtn {
+143:     width: 200px;
+144:     height: 48px;
+145:   }
+146: 
+147:   .topmsg {
+148:     display: flex;
+149:     margin-bottom: 20px;
+150:     justify-content: center;
+151: 
+152:     .topmsgl {
 
 Backtrace:
-E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/tools/mixin.scss:147:in `el-select-dropdown'
-E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/tools/element-ui.scss:575
-E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/index.scss:4
-E:\GITCode\GIT\Github\GeneralTool\css\toolStyle\index.scss:1
+E:/GITCode/GIT/Github/GeneralTool/api_resource/lib/control/css/toolStyle/control/tools/mixin.scss:147:in `el-select-dropdown'
+E:/GITCode/GIT/Github/GeneralTool/api_resource/lib/control/css/toolStyle/control/tools/element-ui.scss:575
+E:\GITCode\GIT\Github\GeneralTool\api_resource\lib\control\css\toolStyle\control\index.scss:4
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -60,19 +70,6 @@ D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in wi
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `map'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `block in with_import'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `with_import'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `map'
 D:/ITWindows/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:52:in `visit_children'
@@ -98,4 +95,4 @@ D:/ITWindows/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$mainbg\".\A         on line 147 of E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/tools/mixin.scss, in `el-select-dropdown'\A         from line 575 of E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/tools/element-ui.scss\A         from line 4 of E:/GITCode/GIT/Github/GeneralTool/css/toolStyle/control/index.scss\A         from line 1 of E:\GITCode\GIT\Github\GeneralTool\css\toolStyle\index.scss"; }
+  content: "Error: Undefined variable: \"$mainbg\".\A         on line 147 of E:/GITCode/GIT/Github/GeneralTool/api_resource/lib/control/css/toolStyle/control/tools/mixin.scss, in `el-select-dropdown'\A         from line 575 of E:/GITCode/GIT/Github/GeneralTool/api_resource/lib/control/css/toolStyle/control/tools/element-ui.scss\A         from line 4 of E:\GITCode\GIT\Github\GeneralTool\api_resource\lib\control\css\toolStyle\control\index.scss\A \A 142:   .bottomBtn {\A 143:     width: 200px;\A 144:     height: 48px;\A 145:   }\A 146: \A 147:   .topmsg {\A 148:     display: flex;\A 149:     margin-bottom: 20px;\A 150:     justify-content: center;\A 151: \A 152:     .topmsgl {"; }

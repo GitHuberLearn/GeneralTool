@@ -1,9 +1,5 @@
 @import '../api_resource/lib/index.scss';
-@import './product/stylenew.css';
-
-//依赖variables
-// @import './toolStyle/index.scss';
-// @import './common/index.scss';
+@import './product/stylenew.scss';
 
 .snapshot {
   display: flex;
