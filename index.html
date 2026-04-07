@@ -54,7 +54,6 @@
     <ol>
       <li><a href="@/js/utils/index.js" target="_blank">utils</a></li>
     </ol>
-
     <p class="title"><i class="lins"></i>图片</p>
     <ol class="snapshot gap-10">
       <img class="icon-min" src="@/images/IT/1.jpg" alt="" />
@@ -89,7 +88,7 @@
     const utils = await import(`${cube.gatewayURL_module}/js/utils/index.js`);
     const { sexType, getScroll, getDateN } = utils.default;
     console.log('utils', getDateN(3));
-    console.log('help: ', getScroll(), utils.default.openWeather());
+    console.log('help: ', sexType, utils.default.orderInfor());
     $(function () {});
   </script>
 </html>
