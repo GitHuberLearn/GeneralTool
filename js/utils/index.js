@@ -285,6 +285,21 @@ function getRecentMonth(news, type) {
   type = type ? type : 'yyyy-MM';
   return XEUtils.toDateString(month, type);
 }
+
+/**
+ * @param {*月数} n
+ * @param {*时间类型} type
+ * @returns 前n个月月份:本月计入
+ */
+function getNMonth(n, type) {
+  let FMonths = [];
+  for (let index = n - 1; index >= 0; index--) {
+    const date = getRecentMonth(-index, type);
+    FMonths.push(date);
+  }
+  return FMonths;
+}
+
 /**
  * 获取自定义月份
  * @param {Object} param
@@ -330,6 +345,35 @@ const XEUtils = {
     }
   },
 };
+
+/**
+ * @param {*天数} n
+ * @param {*时间类型} type
+ * @returns 前n天:本天计入
+ */
+function getDateN(n, type) {
+  let FDate = [];
+  for (let index = n - 1; index >= 0; index--) {
+    const date = getRecentDate(-index, type);
+    FDate.push(date);
+  }
+  return FDate;
+}
+
+/**
+ * @param {*天数} n
+ * @param {*时间类型} type
+ * @returns 前n天:本天不计入
+ */
+export function getDateF(n, type) {
+  let FDate = [];
+  for (let index = n; index > 0; index--) {
+    const date = getRecentDate(-index, type);
+    FDate.push(date);
+  }
+  return FDate;
+}
+
 function getRecentDate(n, type) {
   let day = XEUtils.getWhatDay(new Date(), n);
   type = type ? type : 'yyyy-MM-dd';
@@ -414,6 +458,54 @@ function parseTime(time, cFormat) {
     }
     return formatObj[key];
   });
+}
+
+//前8天的日期
+const date = [
+  parseTime(new Date() - 7 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+  parseTime(new Date() - 6 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+  parseTime(new Date() - 5 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+  parseTime(new Date() - 4 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+  parseTime(new Date() - 3 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+  parseTime(new Date() - 2 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+  parseTime(new Date() - 1 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+  parseTime(new Date() - 0 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+];
+
+//前七天
+const dateF = date.slice(0, 7);
+//前七天含今天
+const dateN = date.slice(1, 8);
+
+/**
+ *
+ * @param {*} n小时
+ * @param {*} option{
+ *  time:时间
+ *  spacing：间隔时间(单位分钟)
+ * }
+ * @returns 获取从time(默认当前)时间前的n小时前每隔spacing的间隔时间
+ */
+export function getTimeSpa(n, option) {
+  //获取当前时间-24小时每隔15min的时间
+  const t = 1000 * 60; //一分钟的时间戳
+  let s = n ? n * 60 * t : 24 * 60 * t; //24就是96个时间
+  let d = new Date().getTime();
+  let spa = 15 * t;
+  if (option) {
+    const { time, spacing } = option;
+    if (time) {
+      d = new Date(time).getTime();
+    }
+    spa = spacing * t;
+  }
+  var result = [];
+  let i = 0;
+  while (i < s) {
+    result.push(parseTime(d - i));
+    i += spa; //计入当前
+  }
+  return result.reverse();
 }
 
 /**
@@ -992,38 +1084,6 @@ const toStartName = (name) => {
 };
 
 /**
- * @param {*数组或数值} indicator
- * @param {*返回Html} marke
- * @param {*色值1} arrcs
- * @param {*色值2} arrcs1
- * @returns
- */
-const indicator_cs = (indicator, marke, arrcs, arrcs1) => {
-  let s = 0;
-  let num = indicator instanceof Array ? indicator.length : indicator;
-  let cs = [];
-  let cs1 = [];
-  for (let index = 0; index < num; index++) {
-    s = s < arrcs.length ? s : 0;
-    let key = `marke_${index}`;
-    Object.assign(marke, {
-      [key]: {
-        width: 7,
-        height: 7,
-        borderRadius: 50,
-        borderColor: cs1[s],
-        borderWidth: 3,
-        backgroundColor: cs[s],
-      },
-    });
-    cs.push(arrcs[s]);
-    cs1.push(arrcs1[s]);
-    s++;
-  }
-  return { marke, cs, cs1 };
-};
-
-/**
  * 输入框只能输入正数、浮点数
  * @param {值} num
  * @returns
@@ -1063,21 +1123,21 @@ function toTimeString(val) {
   return t[1] === '00:00:00' ? t[0] : val;
 }
 
-//前8天的日期
-const date = [
-  parseTime(new Date() - 7 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
-  parseTime(new Date() - 6 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
-  parseTime(new Date() - 5 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
-  parseTime(new Date() - 4 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
-  parseTime(new Date() - 3 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
-  parseTime(new Date() - 2 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
-  parseTime(new Date() - 1 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
-  parseTime(new Date() - 0 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
-];
-//前七天
-const dateFs = date.slice(0, 7);
-//前七天含今天
-const dateNs = date.slice(1, 8);
+// //前8天的日期
+// const date = [
+//   parseTime(new Date() - 7 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+//   parseTime(new Date() - 6 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+//   parseTime(new Date() - 5 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+//   parseTime(new Date() - 4 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+//   parseTime(new Date() - 3 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+//   parseTime(new Date() - 2 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+//   parseTime(new Date() - 1 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+//   parseTime(new Date() - 0 * 24 * 3600 * 1000, '{y}-{m}-{d}'),
+// ];
+// //前七天
+// const dateFs = date.slice(0, 7);
+// //前七天含今天
+// const dateNs = date.slice(1, 8);
 
 //前5个月的月份
 const months = [
@@ -1187,8 +1247,8 @@ const copyToClipboard = (context) => {
 
 export default {
   ...help,
-  dateFs,
-  dateNs,
+  dateF,
+  dateN,
   copyToClipboard,
   formatPhoneNumber,
   tableMarqueeSeamless,
@@ -1198,11 +1258,12 @@ export default {
   getKeyItem,
   initIndexDB,
   compare,
+  getDateN,
   getRecentDate, //updateNewRemove
   getCustomDate,
+  getNMonth,
   getRecentMonth, //updateNewRemove
   getCustomMonth,
-  getRecentDate,
   getRecentYear,
   parseTime,
   bgFunUrl,

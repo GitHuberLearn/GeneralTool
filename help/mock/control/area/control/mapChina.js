@@ -1,4 +1,4 @@
-const mapDataChina = {
+const mapChina = {
    "type": "FeatureCollection",
    "features": [
       {
@@ -11181,5 +11181,5 @@ const mapDataChina = {
 }
 
 export default {
-   mapDataChina
+mapChina
 }

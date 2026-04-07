@@ -4,96 +4,92 @@
  * @Author: YangKe
  * @Date: 2019-12-17 09:41:06
  * @LastEditors: ~
- * @LastEditTime: 2026-04-02 17:54:39
+ * @LastEditTime: 2026-04-07 10:03:24
  -->
 <!doctype html>
 <html>
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="renderer" content="webkit|ie-comp|ie-stand" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <meta
+    <meta
       name="viewport"
       content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
     />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <title>GeneralTool</title>
     <!--common css/js-->
-    <script src="./js/common/common-cloud.js" ></script>
+    <script src="./js/common/common-cloud.js"></script>
     <!--声明css,js变量-->
     <script type="text/javascript">
-        var LSList = {
-            type1: 'link',
-            type2: 'script',
-            //引入的路径列表
-            list1: [],
-            list2: [],
-        };
+      var LSList = {
+        type1: 'link',
+        type2: 'script',
+        //引入的路径列表
+        list1: [],
+        list2: [],
+      };
     </script>
     <!--About css-->
     <script type="text/javascript">
-        writeImportFile(LSList.type1, LSList.list1);
+      writeImportFile(LSList.type1, LSList.list1);
     </script>
     <style type="text/css">
       .gap-10 {
         gap: 10px;
       }
     </style>
-</head>
+  </head>
 
-<body class="catalogue-url">
+  <body class="catalogue-url">
     <pre class="foldBox">
 		GeneralTool：通用型CDN工具类方法
-	</pre>
+	</pre
+    >
     <p class="title"><i class="lins"></i>CSS</p>
     <ol>
-        <li><a href="@/api_resource/lib/index.css"  target="_blank">CSS</a></li>
+      <li><a href="@/api_resource/lib/index.css" target="_blank">CSS</a></li>
     </ol>
     <p class="title"><i class="lins"></i>JS</p>
     <ol>
-        <li><a href="@/js/utils/index.js"  target="_blank">utils</a></li>
-        <li><a href="@/help/index.js" target="_blank">help</a></li>
+      <li><a href="@/js/utils/index.js" target="_blank">utils</a></li>
     </ol>
-    <p class="title"><i class="lins"></i>工具类</p>
-    <ol>
-      <li><a href="@/view/tools/vue.html">vue</a></li>
-    </ol>
+
     <p class="title"><i class="lins"></i>图片</p>
     <ol class="snapshot gap-10">
-        <img class="icon-min" src="@/images/IT/1.jpg" alt="" />
-        <img class="icon-min" src="@/images/IT/2.jpg" alt="" />
-        <img class="icon-min" src="@/images/IT/3.jpg" alt="" />
-        <img class="icon-min" src="@/images/IT/41.jpg" alt="" />
+      <img class="icon-min" src="@/images/IT/1.jpg" alt="" />
+      <img class="icon-min" src="@/images/IT/2.jpg" alt="" />
+      <img class="icon-min" src="@/images/IT/3.jpg" alt="" />
+      <img class="icon-min" src="@/images/IT/41.jpg" alt="" />
     </ol>
     <p class="title"><i class="lins"></i>音乐</p>
     <ol class="snapshot">
-        <audio controls>
-            <source src="@/images/resources/左手指月.mp3" type="audio/mpeg" />
-        </audio>
+      <audio controls>
+        <source src="@/images/resources/左手指月.mp3" type="audio/mpeg" />
+      </audio>
     </ol>
     <p class="title"><i class="lins"></i>视频</p>
     <ol class="snapshot">
-        <video controls width="500">
-            <source src="@/images/resources/大美西安-古都.mp4" type="video/mp4" />
-            您的浏览器不支持 video 标签。
-        </video>
-</body>
-<!--Tripartite js-->
-<!--About js-->
-<script type="text/javascript">
+      <video controls width="500">
+        <source src="@/images/resources/大美西安-古都.mp4" type="video/mp4" />
+        您的浏览器不支持 video 标签。
+      </video>
+    </ol>
+    <p class="title"><i class="lins"></i>工具测试类</p>
+    <ol>
+      <li><a href="@/view/tools/vue.html">vue</a></li>
+    </ol>
+  </body>
+  <!--Tripartite js-->
+  <!--About js-->
+  <script type="text/javascript">
     writeImportFile(LSList.type2, LSList.list2);
-</script>
-<script type="module">
+  </script>
+  <script type="module">
     const utils = await import(`${cube.gatewayURL_module}/js/utils/index.js`);
-    const {sexType,dateNs} = utils.default
-    console.log('help: ',sexType);
-    console.log('utils',dateNs);
-    const { getDateN } = await import(
-        `${cube.gatewayURL_module}/js/utils/mockData.js`
-    );
-    console.log('mockData: ', getDateN(3));
-    $(function () { });
-</script>
-
+    const { sexType, getScroll, getDateN } = utils.default;
+    console.log('utils', getDateN(3));
+    console.log('help: ', getScroll(), utils.default.openWeather());
+    $(function () {});
+  </script>
 </html>
