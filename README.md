@@ -34,8 +34,8 @@
 
 ```bash
 # 构建环境
-- https://githuberlearn.github.io/GeneralTool
-- 后期移除：
+- Github: https://githuberlearn.github.io/GeneralTool
+- 后期移除：亚马逊
 + S3: http://general-tool.s3-website-us-east-1.amazonaws.com
 + 加速静态系统: https://d1dz6z4cucwyf1.cloudfront.net
 ```
@@ -69,6 +69,7 @@ xxx（组件名称）
 + 加入layui-v2.5.6
 + 添加自定义日期功能
 + 引入sass
++ 更新框架方法结构
 
 ⭐ 状态说明
 - ING：属于进行中，未合并到master
