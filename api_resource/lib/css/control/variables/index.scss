@@ -1,0 +1,99 @@
+/*
+ * @Descripttion: perserve
+ * @version: 1.0.0
+ * @Author: YangKe
+ * @Date: 2020-01-22 17:46:26
+ * @LastEditors: ~
+ * @LastEditTime: 2026-04-07 16:20:39
+ */
+//设置尺寸变量%
+$size-10: 10%;
+$size-15: 15%;
+$size-20: 20%;
+$size-25: 25%;
+$size-30: 30%;
+$size-35: 35%;
+$size-40: 40%;
+$size-45: 45%;
+$size-50: 50%;
+$size-55: 55%;
+$size-60: 60%;
+$size-65: 65%;
+$size-70: 70%;
+$size-75: 75%;
+$size-80: 80%;
+$size-85: 85%;
+$size-90: 90%;
+$size-95: 95%;
+$size-100: 100%;
+//设置尺寸变量px
+$size-10px: 10px;
+$size-15px: 15px;
+$size-30px: 30px;
+$size-50px: 50px;
+$size-150px: 150px;
+$size-200px: 200px;
+$size-300px: 300px;
+//设置颜色变量
+//红色
+$red: #f06060;
+$red2: #f05e5e;
+$redtinge: #fef7f7;
+//紫色
+$violet: violet;
+$violet2: #6560ed;
+$violettinge: #f7f7fe;
+//橘色
+$orange: orange;
+$orange1: #feae33;
+$orangetingew1: #ffe0d0;
+//蓝色
+$blue: blue;
+$blue1: #4a9ee7;
+$blue1R: rgba(74, 158, 231, 0.8);
+$blue1Rb: rgba(74, 158, 231, 1);
+$blue2: #2c91e9;
+$blue3: #2f8fe2;
+$blue4: #4c8cc4;
+$blue5: #1d89e7;
+$blue6: #1890ff;
+$bluetingew: #e6f7ff;
+$bluetingew1: #c2e3ff;
+$bluetinge: #f5fbff;
+$bluetingeR: rgba(226, 239, 252, 0.8);
+$bluetingeRb: rgba(226, 239, 252, 1);
+//绿色
+$green: green;
+$green1: #29c677;
+$greenR: rgba(0, 152, 133, 0.8);
+$greenRb: rgba(0, 152, 133, 1);
+$green2: #2fab95;
+$green3: #bbd4ef;
+$green4: #e5f0fb;
+$green5: #e7f0fb;
+$green6: #68cb39;
+$greeningew: #e6f5e4;
+$greeninge: #e8fefc;
+$greeningeR: rgba(232, 254, 252, 0.8);
+$greeningeRb: rgba(232, 254, 252, 1);
+//黑色
+$black: #333;
+$black1: #666;
+$black2: #999;
+$blacktinge: #ccc;
+//灰色
+$gray: #8fa9b6;
+$gray1: #dedfdf;
+$gray2: #a9adb2;
+$graytinge0: #f5f5f5;
+$graytinge: #eaeff3;
+$boc: $graytinge;
+//黄色
+$yellow: #ffc335;
+
+$border: 1px solid $graytinge;
+
+//自定义图片路径
+$base-assets: '/api_resource/lib/css/control/base/control/assets';
+
+@import 'custom.scss';

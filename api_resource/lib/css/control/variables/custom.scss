@@ -1,0 +1,50 @@
+/*
+ * @Descripttion: perserve
+ * @version: 1.0.0
+ * @Author: YangKe
+ * @Date: 2020-01-22 17:46:26
+ * @LastEditors: ~
+ * @LastEditTime: 2026-04-07 16:57:31
+ */
+
+//项目自定义指标值
+$mainbg: #0a1365;
+$mainbgdepth: #161681;
+$header: 4.5rem;
+$fzcolor: #e5f7ff;
+
+// sidebar
+$menuText: #e9e7e7;
+$menuTextOpened: #fff;
+$menuActiveText: #ffd04b;
+$subMenuActiveText: #0ac8db; //https://github.com/ElemeFE/element/issues/12951
+$menuBg: #304156;
+$menuHover: #249fed;
+$subMenuBg: #1f2d3d;
+$subMenuHover: #249fed;
+$sideBarWidth: 246px;
+$sideBarWidth: 246px;
+$iconFz: 16px;
+
+//dashboard-variables
+$wmedia: 112rem; //1900px;
+$hmedia: 64rem; //1070 58rem 64rem
+$hbox: 3rem;
+$handle: #a3e8ff;
+
+//自定义路径
+$toolStyle-assets: '../assets/';
+//自定义图片路径
+$base-assets: '/api_resource/lib/css/control/base/control/assets';
+
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+  bgfzColor: $fzcolor;
+}

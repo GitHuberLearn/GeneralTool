@@ -1,5 +1,5 @@
+// 仅仅作为入口文件，导入变量和组件样式，其他无需编译，即使编译依赖variables会报错
+// 依赖variables - 对于构建工具加入全局之根
+@import 'control/variables/index.scss';
 // 基础样式
-@import 'base/index.scss'; //@import url(/api_resource/lib/control/css/base/index.css);
-//依赖variables - 对于构建工具加入全局无需反复引入
-@import 'toolStyle/index.scss';
-@import 'common/index.scss';
+@import 'control/index.scss'; //@import url();

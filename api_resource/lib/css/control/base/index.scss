@@ -1,0 +1,19 @@
+/*
+ * @Descripttion: perserve
+ * @version: 1.0.0
+ * @Author: YangKe
+ * @Date: 2020-01-22 17:46:26
+ * @LastEditors: ~
+ * @LastEditTime: 2026-04-07 16:29:22
+ */
+//基础图片放置，使用css可防止路径编译错误，也可以使用自定义路径$base-assets
+@import './control/base.scss';
+@import './control/index.scss';
+// 加入合作模式
+@import './control/mins.scss';
+
+//会变量提升最前面
+//兼容IE
+@import './control/iesy.scss';
+//集成app
+//@import './indexApp.scss';

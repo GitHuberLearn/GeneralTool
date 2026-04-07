@@ -4,7 +4,7 @@
  * @Author: Eric
  * @Date: 2022-10-08 15:53:31
  * @LastEditors: ~
- * @LastEditTime: 2026-04-01 18:12:10
+ * @LastEditTime: 2026-04-07 16:52:58
 -->
 # GeneralTool：通用型工具 2022-10-08 - 202x-xx-xx
 
@@ -70,6 +70,7 @@ xxx（组件名称）
 + 添加自定义日期功能
 + 引入sass
 + 更新框架方法结构
++ 对于非构建工具css👉index.scss 仅仅作为入口文件编译，导入变量和组件样式，其他无需编译，即使编译依赖variables会报错
 
 ⭐ 状态说明
 - ING：属于进行中，未合并到master
@@ -84,6 +85,7 @@ xxx（组件名称）
 
 ```bash
 - 基于基础HTML+JQ+layui-v2.5.6
+- 对于非构建工具css👉index.scss仅仅作为入口文件编译
 ```
 
 ### 相关Code
