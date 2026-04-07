@@ -1,0 +1,47 @@
+/*
+ * @Descripttion: Sustainable
+ * @version: 1.0.0
+ * @Author: Kenny
+ * @Date: 2024-09-10 11:34:01
+ * @LastEditors: ~
+ * @LastEditTime: 2024-09-13 12:01:00
+ */
+//项目自定义指标值
+$mainbg: #0a1365;
+$mainbgdepth: #161681;
+$header: 4.5rem;
+$fzcolor: #e5f7ff;
+
+// sidebar
+$menuText: #e9e7e7;
+$menuTextOpened: #fff;
+$menuActiveText: #ffd04b;
+$subMenuActiveText: #0ac8db; //https://github.com/ElemeFE/element/issues/12951
+$menuBg: #304156;
+$menuHover: #249fed;
+$subMenuBg: #1f2d3d;
+$subMenuHover: #249fed;
+$sideBarWidth: 246px;
+$sideBarWidth: 246px;
+$iconFz: 16px;
+
+//dashboard-variables
+$wmedia: 112rem; //1900px;
+$hmedia: 64rem; //1070 58rem 64rem
+$hbox: 3rem;
+$handle: #a3e8ff;
+
+//自定义路径
+$toolStyle-assets: '../assets/';
+
+:export {
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  sideBarWidth: $sideBarWidth;
+  bgfzColor: $fzcolor;
+}
