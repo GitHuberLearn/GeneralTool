@@ -1245,11 +1245,42 @@ const copyToClipboard = (context) => {
   input.remove();
 };
 
+/**
+ * @description: 使用自定义标签包裹 "-" 后的数字
+ * @param param
+ * str: 需要替换的字符串，
+ * type: 标签类型sub/sup
+ * @returns {string} 返回替换后的 HTML 字符串（需用 rich-text 或 v-html 渲染）
+ * @example
+ *   tagPackageNumber({ str: "PaO-2-3a", type: "sub" })
+ *   // 返回: "PaO<sub>2</sub><sub>3</sub>a"
+ */
+function tagPackageNumber({ str, type }) {
+  // 参数校验
+  if (typeof str !== 'string' || typeof type !== 'string') {
+    console.error('tagPackageNumber: 参数必须是字符串');
+    return str;
+  }
+  // 允许的标签类型（防止 XSS 攻击）
+  const ALLOWED_TAGS = ['sub', 'sup', 'small', 'i', 'b']; // 可扩展
+  if (!ALLOWED_TAGS.includes(type)) {
+    console.warn(
+      `tagPackageNumber: 不安全的标签类型 "${type}"，已回退到 "sub"`,
+    );
+    type = 'sub'; // 默认回退到 sub
+  }
+  const regex = /-(\d+)/g;
+  // 替换为 <type>数字</type>
+  return str.replace(regex, (_, value) => `<${type}>${value}</${type}>`);
+}
+
 export default {
+  tagPackageNumber,
+  copyToClipboard,
+
   ...help,
   dateF,
   dateN,
-  copyToClipboard,
   formatPhoneNumber,
   tableMarqueeSeamless,
   actionUrl,
