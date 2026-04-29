@@ -1,23 +1,21 @@
+/*
+ * @Descripttion: Sustainable
+ * @version: 1.0.0
+ * @Author: Kenny
+ * @Date: 2026-04-01 16:54:48
+ * @LastEditors: ~
+ * @LastEditTime: 2026-04-29 11:18:30
+ */
 import data from './control/data.js';
 import area from './control/area/index.js';
 
 /**
- * 是否请求成功
- * @param {*String} key 成功返回值
- * @returns booleanValue
+ * @description: 判断 key 是否为成功状态（200、0 或 true）
+ * @param {any} key - 待检查的值
+ * @returns {boolean} 如果是 则返回 true，否则返回 false
  */
-const successStatus = (key) => {
-  let suc = false;
-  switch (key) {
-    case 200:
-      suc = true;
-      break;
-    case 0:
-      suc = true;
-      break;
-  }
-  return suc;
-};
+const SUCCESS_STATUSES = new Set([200, 0, true]);
+const successStatus = (key) => SUCCESS_STATUSES.has(key); // 或 includes(key)
 /**
  * 值存在
  * @param {*any} value 返回数据

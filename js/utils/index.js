@@ -1246,13 +1246,13 @@ const copyToClipboard = (context) => {
 };
 
 /**
- * @description: 使用自定义标签包裹 "-" 后的数字
+ * @description: 使用自定义标签包裹 "^" 后的数字
  * @param param
  * str: 需要替换的字符串，
  * type: 标签类型sub/sup
  * @returns {string} 返回替换后的 HTML 字符串（需用 rich-text 或 v-html 渲染）
  * @example
- *   tagPackageNumber({ str: "PaO-2-3a", type: "sub" })
+ *   tagPackageNumber({ str: "PaO^2^3a", type: "sub" })
  *   // 返回: "PaO<sub>2</sub><sub>3</sub>a"
  */
 function tagPackageNumber({ str, type }) {
@@ -1269,7 +1269,7 @@ function tagPackageNumber({ str, type }) {
     );
     type = 'sub'; // 默认回退到 sub
   }
-  const regex = /-(\d+)/g;
+  const regex = /\^(\d+)/g;
   // 替换为 <type>数字</type>
   return str.replace(regex, (_, value) => `<${type}>${value}</${type}>`);
 }
