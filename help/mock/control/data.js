@@ -495,7 +495,22 @@ const uploadFileAPI1 = ({
   return `${url}?type=${type}`;
 };
 
+/**
+ * @description: 成功数据状态
+ */
+const SUCCESS_STATUSES = new Set([200, 0, true]);
+
+/**
+ * 模块控制：显示模块
+ */
+const ModuleControl = {
+  Dome1: ['key'],
+  Dome2: ['key1', 'key2'],
+};
+
 export default {
+  ModuleControl,
+  SUCCESS_STATUSES,
   //业务数据
   uploadFileAPI,
   actionPort,

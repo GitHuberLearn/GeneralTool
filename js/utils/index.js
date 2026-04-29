@@ -1277,7 +1277,6 @@ function tagPackageNumber({ str, type }) {
 export default {
   tagPackageNumber,
   copyToClipboard,
-
   ...help,
   dateF,
   dateN,

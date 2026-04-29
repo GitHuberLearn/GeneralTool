@@ -4,17 +4,16 @@
  * @Author: Kenny
  * @Date: 2026-04-01 16:54:48
  * @LastEditors: ~
- * @LastEditTime: 2026-04-29 11:18:30
+ * @LastEditTime: 2026-04-29 17:10:46
  */
 import data from './control/data.js';
 import area from './control/area/index.js';
-
+const { SUCCESS_STATUSES, ModuleControl } = data;
 /**
  * @description: 判断 key 是否为成功状态（200、0 或 true）
  * @param {any} key - 待检查的值
  * @returns {boolean} 如果是 则返回 true，否则返回 false
  */
-const SUCCESS_STATUSES = new Set([200, 0, true]);
 const successStatus = (key) => SUCCESS_STATUSES.has(key); // 或 includes(key)
 /**
  * 值存在
@@ -44,7 +43,25 @@ const successHaveData = (key, data) => {
   return successStatus(key) && hasValue(data);
 };
 
+/**
+ * 获取list包含模块的数据
+ */
+const getModuleList = (list, { moduleControlKey, listKey }) => {
+  return getKeyList({ list, listKey, keys: ModuleControl[moduleControlKey] });
+};
+
+/**
+ * 获取list包含keys的数据
+ * @param {*Object} param0
+ * @returns
+ */
+const getKeyList = ({ list, listKey, keys }) => {
+  return list.filter((item) => keys.includes(item[listKey]));
+};
+
 export default {
+  ModuleControl,
+  getModuleList,
   ...area,
   ...data,
   successHaveData,
