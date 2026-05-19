@@ -1229,6 +1229,7 @@ const toStartCellphone = (phone) => {
 /**
  * 复制文本到剪贴板
  * @param {String} context 复制的内容
+ * 存在微小小程序兼容问题，暂时未使用
  */
 const copyToClipboard = (context) => {
   // 创建输入框元素
