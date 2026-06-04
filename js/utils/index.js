@@ -1275,7 +1275,21 @@ function tagPackageNumber({ str, type }) {
   return str.replace(regex, (_, value) => `<${type}>${value}</${type}>`);
 }
 
+/**
+ * 判断对象是否一致
+ * @param {Object} a
+ * @param {Object} b
+ * @returns
+ */
+const shallowEqual = (a, b) => {
+  const keysA = Object.keys(a);
+  const keysB = Object.keys(b);
+  if (keysA.length !== keysB.length) return false;
+  return keysA.every((key) => a[key] === b[key]);
+};
+
 export default {
+  shallowEqual,
   tagPackageNumber,
   copyToClipboard,
   ...help,
