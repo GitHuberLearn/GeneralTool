@@ -16,6 +16,12 @@
 * help: *index【实时更新方法】
 * layout: *tableMixin【tableMixinDome_Upload】
 * utils: *index【实时更新方法】
+# URL 
+- 生产：https://githuberlearn.github.io/GeneralTool（git）
+- 生产：http://general-tool.s3-website-us-east-1.amazonaws.com（亚马逊云S3）
+- 生产：https://d1dz6z4cucwyf1.cloudfront.net（加速静态系统）
+- 测试：x
+- 本地：http://127.0.0.1:5501
 ```
 
 ## 项目开发
@@ -34,10 +40,8 @@
 
 ```bash
 # 构建环境
-- Github: https://githuberlearn.github.io/GeneralTool
-- 后期移除：亚马逊
-+ S3: http://general-tool.s3-website-us-east-1.amazonaws.com
-+ 加速静态系统: https://d1dz6z4cucwyf1.cloudfront.net
+- git
+- 亚马逊云S3
 ```
 
 ### 使用
